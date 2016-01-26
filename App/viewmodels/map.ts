@@ -63,11 +63,26 @@ class map {
         layers: [
             // base-map tile layer
             new mapsjs.tile.layerOptions('base',
+            {
+                useBackdrop: true,
+                requestor: this.getBaseMapRequestor(),
+                descriptor: observable(this, 'requestorDescriptor')
+            }),
+            // OVERLAY
+            new mapsjs.tile.layerOptions('mdnLayer',
+            {
+                useBackdrop: false,
+                retainInterlevelContent: false,
+                tileBleedPix: 0,
+                requestor: new mapsjs.tile.requestorMDNRest(config.appsettings.endpoint),
+                descriptor: new mapsjs.tile.descriptorMDNRestMap(config.appsettings.mapId,
                 {
-                    useBackdrop: true,
-                    requestor: this.getBaseMapRequestor(),
-                    descriptor: observable(this, 'requestorDescriptor')
+                    bleedRatio: 1.125,
+                    imageType: 'png8',
+                    mapCacheOption: 'None',
+                    useQuadKeyForMapCacheName: false
                 })
+            })
         ],
 
         // this is called before layers are loaded and allows async setup of the map's center and zoom level ----------------

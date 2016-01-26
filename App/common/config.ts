@@ -6,12 +6,21 @@ import mdnl = require('common/mdnLayer');
 // these are obtained from the web.config through a service call
 export module appsettings {
 
+    // dev
+    var _endpointDev:string = 'http://localhost/MapDotNetUX9.5';
+    var _mapIdDev: string = 'EasyTerritory';
+    var _endpoint: string = '@@APPENDPOINT@@';
+    var _mapId: string = '@@APPMAPID@@';
+
     export var docUrl = document.URL;
     export var serverPath = utility.getServerPlusPath();
 
-    // the MDN endpoint and map id holding all available layers in the catalog
-    export var endpoint: string = 'http://localhost/MapDotNetUX9.5';
-    export var mapId: string = 'EasyTerritory';
+    // these will use the overwritten version by the gulp build or dev
+    export var endpoint: string = _endpoint.indexOf('@@') > -1 ? _endpointDev : _endpoint;
+    export var mapId: string = _mapId.indexOf('@@') > -1 ? _mapIdDev : _mapId;
+
+    // the layer to display and query
+    export var layerId: string = 'Accounts';
 
     // if this is not set, the base map will default to open mapquest
     export var bingKey: string = 'AgjUzr-k4QJoW8nj50LKR2YL4nVsJyHF3NmMhuRjW0bPEfXaeTQKVJ5xHp7c65VU';
@@ -19,8 +28,8 @@ export module appsettings {
     // set to true if a valid bing key provided
     export var areBingServicesAvailable: boolean = true;
 
-    // number of mS to allow ajax calls in com and mdn
-    export var serviceTimeoutSecs: number = 30000;
+    // number of secs to allow ajax calls in com and mdn
+    export var serviceTimeoutSecs: number = 30;
 
     // number of query results to return (overwritten during settings read)
     export var maxQueryResults: number = 10000;
@@ -48,7 +57,7 @@ export module appsettings {
 export module appdata {
 
     // application version number
-    export var version = '@APPVERSION@';
+    export var version = '@@APPVERSION@@';
 
     // supported datetime formats
     export var supportedDatetimeFormats = [
@@ -67,7 +76,6 @@ export module appdata {
 
     // this is loaded by the dashboard map and contain map and layer information from the MDN map file
     export var mdnMetadata = null;
-
 
     // loads the mdn metadata
     export function readMetadata(): JQueryDeferred<any> {

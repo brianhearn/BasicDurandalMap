@@ -97,7 +97,7 @@ module.exports = function (grunt) {
                 overwrite: true,
                 replacements: [
                     {
-                        from: '@APPVERSION@',
+                        from: '@@APPVERSION@#',
                         to: version
                     }
                 ]
