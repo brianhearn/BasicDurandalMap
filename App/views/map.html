@@ -1,0 +1,41 @@
+﻿<div class="dashboard-map" data-bind="rimMap: mapOptions">
+
+    <!--BASEMAP CONTROLS-->
+    <div class="basemapControlArea">
+    
+        <!--LAYER SELECTION-->
+        <select class="baseMapSelect"
+                data-bind="visible: showBasemapSelection, options: baseLayerOptions, optionsText: 'label', value: selectedBaseLayerOption "
+                data-i18n="[title]dashboard.map.basemap"></select>
+
+        <!--SLIDER-->
+        <div style="display: inline-block; height: 24px; margin-left: 8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" class="zoomSliderOut" data-bind="click: zoomOut">
+                <circle r="11" cx="12" cy="12" class="zoomButtons" />
+                <rect x="8" y="11" width="8" height="2" class="zoomSymbols"></rect>
+            </svg>
+
+            <div class="zoomSliders"></div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" class="zoomSliderIn" data-bind="click: zoomIn">
+                <circle r="11" cx="12" cy="12" class="zoomButtons" />
+                <rect x="8" y="11" width="8" height="2" class="zoomSymbols"></rect>
+                <rect x="11" y="8" width="2" height="8" class="zoomSymbols"></rect>
+            </svg>
+        </div> 
+    </div>
+    
+    
+    <!--BING-->
+    <div class="bingAttrib noselect" data-bind="visible: showBingAttrib">
+        <img src="./Content/images/bing.png" style="vertical-align: middle; height: 16px; margin-right: 8px; margin-top: -3px;" />
+        <span style="vertical-align: middle">©&nbsp;2015 Microsoft&nbsp;Corporation</span>
+        <span style="vertical-align: middle">©&nbsp;2013 Nokia</span>
+    </div>
+    
+    <!--OI2 ATTRIBUTION-->
+    <div class="oi2Attrib noselect">
+        <span style="vertical-align: middle">©&nbsp;2015 EasyTerritory.com, v</span>
+        <span style="vertical-align: middle" data-bind="text: version"></span>
+    </div>
+</div>

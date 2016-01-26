@@ -1,0 +1,165 @@
+﻿table {
+    border-collapse: collapse;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+div, span {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.header {
+    padding: 0 8px 0 4px;
+    width: 100%;
+    height: 38px;
+    background: #fafafa;
+    background: linear-gradient(to top, rgba(242,242,242,1) 0%, rgba(255,255,255,1) 100%);
+    box-sizing: border-box;
+}
+
+.header > * {
+    box-sizing: border-box;
+    display: inline-block;
+}
+.header-logo {
+    width: 240px;
+    padding: 4px;
+    vertical-align: middle;
+}
+.header-logo + .header-link {
+    margin-left: -4px;
+}
+.header-chrome-text {
+    margin-left: 12px;
+    margin-top: 7px;
+    font-size: 12px;
+    position: absolute;
+}
+.header-link {
+    font-size: 16px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+.header-link.text-sm {
+    padding: 0 4px;
+}
+.header-link:hover {
+    color: inherit;
+}
+.header-link.is-selected {
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.allowselect {
+    -webkit-user-select: text !important;
+    -khtml-user-select: text !important;
+    -moz-user-select: -moz-text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+    cursor: text;
+}
+
+
+.dashboard-top-elements {
+    line-height: 28px;
+    padding: 0;
+    margin: 0;
+    margin-right: 4px;
+}
+
+.dashboard-map {
+    position: absolute;
+    left: 0;
+    top: 38px;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.basemapControlArea {
+    position: absolute;
+    left: 50%;
+    margin-left: -120px;
+    top: 0;
+    display: block;
+    height: 24px;
+    width: 240px;
+    padding: 4px;
+}
+
+.baseMapSelect {
+    line-height: 16px;
+    opacity: 0.9;
+}
+
+.zoomSliders {
+   display:inline-block;
+   vertical-align: middle;
+   width: 60px;
+   height: 24px;
+}
+
+.zoomSliderIn {
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.zoomSliderOut {
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.zoomButtons {
+    cursor: pointer;
+    fill: rgba(255, 255, 255, 0.75);
+    stroke: rgba(0, 0, 0, 0.33);
+    stroke-width: 1px;
+}
+
+.zoomSymbols {
+    fill: #888;
+    stroke: none;
+    stroke-width: 0;
+}
+
+.bingAttrib {
+    position: absolute;
+    right: 32px;
+    bottom:48px;
+    font-size: 10px;
+    color: gray;
+    pointer-events: none;
+}
+
+.oi2Attrib {
+    position: absolute;
+    right: 32px;
+    bottom:32px;
+    font-size: 10px;
+    color: gray;
+    pointer-events: none;
+}

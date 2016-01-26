@@ -1,0 +1,13 @@
+﻿<header class="dashboard-top-elements header" style="position: absolute; left: 0; top: 0; min-width: 640px;">
+
+    <!-- logo -->
+    <div class="header-logo">
+        <img src="./Content/images/header.png"/>
+        <span class="header-chrome-text" data-bind="text: chromeText"></span>
+    </div>
+
+</header>
+
+<div data-bind="compose: { model: 'viewmodels/map' }"></div>
+<div data-bind="compose: { model: 'viewmodels/busy' }"></div>
+<div data-bind="compose: { model: 'viewmodels/block' }"></div>
