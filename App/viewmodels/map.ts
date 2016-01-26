@@ -7,7 +7,7 @@ import observable = require('plugins/observable');
 import utility = require('common/utility');
 
 
-export class map {
+class map {
 
     _map: mapsjs.mapsjsWidget;
     _moveNodeTimer: number;
@@ -27,13 +27,6 @@ export class map {
             trafficOn: false
         },
         {
-            label: 'road + traffic',
-            baseLayerDescriptor: 'rt',
-            requestorDescriptor: 'r',
-            mapBkgColor: '#ACC7F2',
-            trafficOn: true
-        },
-        {
             label: 'aerial',
             baseLayerDescriptor: 'a',
             requestorDescriptor: 'a',
@@ -46,13 +39,6 @@ export class map {
             requestorDescriptor: 'h',
             mapBkgColor: '#010715',
             trafficOn: false
-        },
-        {
-            label: 'hybrid + traffic',
-            baseLayerDescriptor: 'ht',
-            requestorDescriptor: 'h',
-            mapBkgColor: '#010715',
-            trafficOn: true
         }
     ] :
     [
@@ -381,9 +367,6 @@ export class map {
             this._map.zoomDeltaAnimate(1, 1000);
         }
     }
-
-    public compositionComplete(view) {
-        // wire-up language translation
-        $(view).i18n();
-    }
 }
+
+export = map;

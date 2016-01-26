@@ -116,6 +116,14 @@ div, span {
     opacity: 0.9;
 }
 
+.splashImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -165px;
+    margin-top: -35px;
+}
+
 .zoomSliders {
    display:inline-block;
    vertical-align: middle;
@@ -144,6 +152,34 @@ div, span {
     fill: #888;
     stroke: none;
     stroke-width: 0;
+}
+
+.ui-slider .ui-slider-handle {
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    background: rgba(255, 255, 255, 0.33);
+    cursor: pointer;
+    width: 0.5em;
+    height: 1em;
+    color: #333;
+}
+
+.ui-slider-horizontal {
+    height: .5em;
+}
+
+.ui-widget-content {
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    background: rgba(255, 255, 2255, 0.33);
+    color: #333;
+}
+
+.ui-slider-tick-mark {
+    display: inline-block;
+    width: 1px;
+    background: rgba(0, 0, 0, 0.40);
+    height: 5px;
+    position: absolute;
+    top: 2px;
 }
 
 .bingAttrib {

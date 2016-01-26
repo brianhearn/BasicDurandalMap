@@ -116,8 +116,7 @@ export module appdata {
             });
 
             call.fail((request, status) => {
-                var eStr = $.t('error.failMdnMetadata');
-                task.reject(request, status, eStr);
+                task.reject(request, status, 'read metadata error!');
             });
         }
         return task;

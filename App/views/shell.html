@@ -3,11 +3,12 @@
     <!-- logo -->
     <div class="header-logo">
         <img src="./Content/images/header.png"/>
-        <span class="header-chrome-text" data-bind="text: chromeText"></span>
     </div>
 
 </header>
 
-<div data-bind="compose: { model: 'viewmodels/map' }"></div>
+<!--Map-->
+<div data-bind="compose: {model:map, cacheViews: true }"></div>
+
 <div data-bind="compose: { model: 'viewmodels/busy' }"></div>
 <div data-bind="compose: { model: 'viewmodels/block' }"></div>

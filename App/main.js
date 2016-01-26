@@ -13,22 +13,24 @@
 
 define('jquery', function() { return jQuery; });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/binder', 'plugins/router'],
-    function (system, app, viewLocator, binder, router) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/binder', 'common/config'],
+    function (system, app, viewLocator, binder, config) {
 
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
 
     app.configurePlugins({
-        router: true,
+        router: false,
         dialog: true,
         observable: true
     });
     
     // once all of the following async events have completed, proceed
     // these include, starting durandal, reading appsettings from web.config, and loading the OI catalog singleton    
-    var call = $.when([config.readMetadata, app.start]);
+    var call = $.when(
+        config.appdata.readMetadata(),
+        app.start());
         
     call.done(function () {
 

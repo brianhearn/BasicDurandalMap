@@ -23,6 +23,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\main.js" />
+    <Content Include="App\viewmodels\block.js" />
+    <Content Include="App\views\block.html" />
+    <Content Include="App\views\busy.html" />
     <Content Include="App\views\map.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\css\durandal.css" />
@@ -31,6 +34,7 @@
     <Content Include="Content\css\map.css" />
     <Content Include="Content\css\shell.css" />
     <Content Include="Content\images\bing.png" />
+    <Content Include="Content\images\header.png" />
     <Content Include="Content\images\splash.png" />
     <Content Include="favicon.ico" />
     <Content Include="gruntfile.js" />
@@ -88,6 +92,7 @@
     <TypeScriptCompile Include="App\common\interfaces.ts" />
     <TypeScriptCompile Include="App\common\mdnLayer.ts" />
     <TypeScriptCompile Include="App\common\utility.ts" />
+    <TypeScriptCompile Include="App\viewmodels\busy.ts" />
     <TypeScriptCompile Include="App\viewmodels\map.ts" />
     <TypeScriptCompile Include="App\viewmodels\shell.ts" />
     <TypeScriptCompile Include="Scripts\dynamicLabelsWorker.ts" />
@@ -178,6 +183,17 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
