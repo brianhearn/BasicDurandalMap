@@ -26,6 +26,7 @@
     <Content Include="App\viewmodels\block.js" />
     <Content Include="App\views\block.html" />
     <Content Include="App\views\busy.html" />
+    <Content Include="App\views\callout.html" />
     <Content Include="App\views\map.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\css\durandal.css" />
@@ -91,8 +92,10 @@
     <TypeScriptCompile Include="App\common\config.ts" />
     <TypeScriptCompile Include="App\common\interfaces.ts" />
     <TypeScriptCompile Include="App\common\mdnLayer.ts" />
+    <TypeScriptCompile Include="App\common\query.ts" />
     <TypeScriptCompile Include="App\common\utility.ts" />
     <TypeScriptCompile Include="App\viewmodels\busy.ts" />
+    <TypeScriptCompile Include="App\viewmodels\callout.ts" />
     <TypeScriptCompile Include="App\viewmodels\map.ts" />
     <TypeScriptCompile Include="App\viewmodels\shell.ts" />
     <TypeScriptCompile Include="Scripts\dynamicLabelsWorker.ts" />

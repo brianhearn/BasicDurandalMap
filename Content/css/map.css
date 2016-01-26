@@ -199,3 +199,44 @@ div, span {
     color: gray;
     pointer-events: none;
 }
+
+.callout {
+    position: absolute;
+    margin-left: -164px;
+    margin-top: 0;
+    background: transparent;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.calloutTitle {
+    font-size: 18px;
+    color: #a0a0a0;
+    margin-left: 2px;
+}
+
+.calloutRowHeader {
+    color: #a0a0a0;
+    min-width: 80px;
+    vertical-align: top;
+}
+
+.calloutRowValue {
+    color: black;
+    vertical-align: top;
+}
+
+.calloutContent {
+    position: relative;
+    background: white;
+    width: 328px;
+    border-left-color: rgb(160, 160, 160);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(160, 160, 160);
+    border-right-style: solid;
+    border-right-width: 1px;
+    pointer-events: all;
+    line-height: normal;
+    white-space: normal;
+}

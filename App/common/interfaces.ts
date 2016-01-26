@@ -36,3 +36,12 @@ export interface baseLayerOption {
     mapBkgColor: string;
     trafficOn: boolean;
 }
+
+
+export interface calloutRow {
+    header: string;
+    value: string;
+    linkValue: string;
+    isText: boolean;
+    isHyperlink: boolean;
+}

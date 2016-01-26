@@ -1,0 +1,75 @@
+﻿<div class="callout" style="z-index: 10;">
+    
+    <!--CALLOUT TOP-->
+    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="329px" height="64px" version="1.1" viewBox="0 0 150 29" xmlns:xlink="http://www.w3.org/1999/xlink"
+         style="position: relative; display: block;">
+        
+        <defs>
+            
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(255, 255, 255);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(238, 238, 238);stop-opacity:1" />
+            </linearGradient>
+
+        </defs>
+        
+        <path fill="url(#grad1)" stroke="rgb(160, 160, 160)" stroke-width="0.411944" d="M0 29l0 -1c0,-4 4,-7 8,-7l62 0 1 -4 4 -17 5 17 1 4 62 0c4,0 7,3 7,7l0 1 -150 0z"/>
+
+    </svg>
+
+    
+    <!-- CONTENT AREA-->
+    <div class="calloutContent">
+
+        <div style="position: relative; margin-left: 4px; padding-top: 4px; padding-bottom: 4px; width: 320px; overflow-x: hidden; min-height: 120px">
+            
+            <!--TITLE-->
+            <span class="calloutTitle" data-bind="text: title"></span>
+
+            <!--CLOSE BOX-->
+            <div style="position: absolute; right: 2px; top: 8px; width: 14px; height: 14px; z-index: 1; background: white; opacity: 0.01;" data-bind="click: closeClick"></div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position: absolute; right: 2px; top: 8px; width: 14px; height: 14px; opacity: 0.66;">
+                <path d="M 1 1 13 13" style="stroke: rgb(160, 160, 160); stroke-width: 2px; fill: none;" />
+                <path d="M 1 13 13 1" style="stroke: rgb(160, 160, 160); stroke-width: 2px; fill: none;" />
+                <rect x="0" y="0" width="14" height="14" style="fill:transparent; stroke-width: 2px; stroke: rgb(90, 90, 90);" />
+            </svg>
+            
+            <div class="separator" style="margin-top: 4px; margin-left: 4px;"></div>
+           
+            <!--BODY-->
+            <div class="scroll-area dataResultsText" style="max-height: 240px;">
+                <table style="margin-top: 4px;">
+                    <tbody data-bind="foreach: rows">
+                        <tr>
+                            <td class="calloutRowHeader" data-bind="text: header + ':'"></td>
+                            <td class="calloutRowValue">
+                                <span class="allowselect" data-bind="visible: isText, text: value"></span>
+                                <a data-bind="visible: isHyperlink, attr: {href: linkValue}" target="_blank"><span data-bind="text: value"></span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="separator" style="margin-top: 4px; margin-bottom: 20px; margin-left: 4px;"></div>
+        </div>
+    </div>
+    
+    <!--BOTTOM-->
+    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="329px" height="20px" version="1.1" viewBox="0 0 153 9" xmlns:xlink="http://www.w3.org/1999/xlink"
+         style="position: relative; display: block;">
+        
+         <defs>
+            
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(255, 255, 255);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(238, 238, 238);stop-opacity:1" />
+            </linearGradient>
+
+        </defs>
+        
+        <path fill="url(#grad2)" stroke="rgb(160, 160, 160)" stroke-width="0.420211" d="M153 0l0 1c0,4 -3,8 -7,8l-138 0c-4,0 -8,-4 -8,-8l0 -1 153 0z"/>
+
+    </svg>
+
+</div>

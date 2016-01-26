@@ -13,8 +13,8 @@
 
 define('jquery', function() { return jQuery; });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/binder', 'common/config'],
-    function (system, app, viewLocator, binder, config) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/binder', 'common/config', 'common/query'],
+    function (system, app, viewLocator, binder, config, query) {
 
     //>>excludeStart("build", true);
     system.debug(true);
@@ -42,6 +42,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/bin
         app.on('error:show-user').then(function (err, logToServer) {
             alert(err);
         }, this);
+
+        query.install();
 
 
         // goto shell
