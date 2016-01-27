@@ -13,8 +13,8 @@
 
 define('jquery', function() { return jQuery; });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/binder', 'common/config', 'common/query'],
-    function (system, app, viewLocator, binder, config, query) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/binder', 'common/config', 'common/bingGeocoder'],
+    function (system, app, viewLocator, binder, config, bingGeocoder) {
 
     //>>excludeStart("build", true);
     system.debug(true);
@@ -43,8 +43,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/bin
             alert(err);
         }, this);
 
-        query.install();
-
+        // installs
+        bingGeocoder.install();
 
         // goto shell
         viewLocator.useConvention();

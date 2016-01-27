@@ -2,29 +2,37 @@
 import mapsjs = require('mapsjs');
 import dashMap = require('viewmodels/map');
 import query = require('common/query');
-import interfaces = require('common/interfaces');
 import callMod = require('viewmodels/callout');
+import searchbox = require('viewmodels/searchbox');
 
 class Shell {
 
     map: dashMap;
     callout: callMod;
+    search: searchbox;
 
     constructor() {
 
         this.map = new dashMap();
         this.callout = new callMod();
+        this.search = new searchbox(5);
 
-        // if we click on the map, then do an identify
-        app.on('map:pointer-click').then((pt: mapsjs.point, ctrlKey: boolean, shiftKey: boolean) => {
-            query.identify.execute(pt, true);
+        // set watermark
+        this.search.watermark = 'Enter your address or postal code to find the closest chapter';
+
+        // if we click on the map, then do an identify by finding the closest
+        app.on('map:pointer-click geocode:new-loc').then((pt: mapsjs.point) => {
+
+            var call = query.findNearest.execute(pt, 1000);
+            call.done((data) => {
+                if (data) {
+                    this.callout.open(data);
+                }
+            });
         });
 
-        // result-set
-        app.on('query:results:new').then((data: interfaces.mdnFeatureResults) => {
-            if (data.Values.length > 0) {
-                this.callout.open(data);
-            }
+        app.on('search:new-text').then((text: string) => {
+
         });
     }
 }

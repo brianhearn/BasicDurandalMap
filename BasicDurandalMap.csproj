@@ -28,6 +28,7 @@
     <Content Include="App\views\busy.html" />
     <Content Include="App\views\callout.html" />
     <Content Include="App\views\map.html" />
+    <Content Include="App\views\searchbox.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\css\durandal.css" />
     <Content Include="Content\css\jquery-ui-1.10.3.custom.min.css" />
@@ -88,6 +89,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="App\common\bingGeocoder.ts" />
     <TypeScriptCompile Include="App\common\com.ts" />
     <TypeScriptCompile Include="App\common\config.ts" />
     <TypeScriptCompile Include="App\common\interfaces.ts" />
@@ -97,6 +99,7 @@
     <TypeScriptCompile Include="App\viewmodels\busy.ts" />
     <TypeScriptCompile Include="App\viewmodels\callout.ts" />
     <TypeScriptCompile Include="App\viewmodels\map.ts" />
+    <TypeScriptCompile Include="App\viewmodels\searchbox.ts" />
     <TypeScriptCompile Include="App\viewmodels\shell.ts" />
     <TypeScriptCompile Include="Scripts\dynamicLabelsWorker.ts" />
     <TypeScriptCompile Include="Scripts\extensions.ts" />

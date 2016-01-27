@@ -1,0 +1,22 @@
+﻿<div>
+    <form data-bind="submit:executeSearch">
+        <input type="text" style="height: 28px; width: 84%; padding: 0; margin: 0;" data-bind="value: userText, valueUpdate: 'keyup', attr: {placeholder: watermark}, enable: enabled" />
+
+        <div class="dashboard-top-elements svg-buttons-top"
+             data-i18n="[title]dashboard.top.search"
+             style="position: relative; display: inline-block; vertical-align: middle; cursor: pointer; width: 26px; height: 26px; border: 1px solid #a0a0a0; border-radius: 3px; margin-top: -2px"
+             data-bind="click: executeSearch">
+
+            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                 width="19px" height="19px"
+                 style="padding: 3px;"
+                 data-bind="attr: {opacity: searchIconOpacity}"
+                 version="1.1" viewBox="0 0 650 669" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path fill="black" d="M340 345l0 0 1 -1c12,-12 22,-26 29,-42 6,-15 10,-32 10,-50 0,-36 -14,-68 -38,-91 -23,-23 -56,-38 -91,-38 -36,
+              0 -68,14 -91,38 -23,23 -38,56 -38,91 0,36 14,68 38,91 23,23 56,38 91,38 17,0 33,-3 48,-9 15,-6 29,-15 41,-26zm124 41l170 179c23,24 22,63 -2,
+              87 -24,23 -63,22 -87,-2l-170 -179c-10,5 -20,10 -30,15 -29,12 -61,18 -93,18 -69,0 -132,-28 -178,-74 -46,-46 -74,-108 -74,-178 0,-69 28,-132 74,
+              -178 46,-46 108,-74 178,-74 69,0 132,28 178,74 46,46 74,108 74,178 0,35 -7,68 -20,98 -5,13 -12,25 -19,37z" />
+            </svg>
+        </div>
+    </form>
+</div>

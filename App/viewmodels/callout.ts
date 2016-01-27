@@ -31,6 +31,7 @@ class callout {
     public open(data: interfaces.mdnFeatureResults) {
 
         this._location = mapsjs.wkt.parse(data.ShapeWkt[0]);
+        app.trigger('map:fly-to', this._location);
 
         // parse rows
         this.rows.removeAll();
