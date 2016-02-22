@@ -7,8 +7,8 @@ import mdnl = require('common/mdnLayer');
 export module appsettings {
 
     // dev
-    var _endpointDev:string = 'http://localhost/MapDotNetUX9.5';
-    var _mapIdDev: string = 'EasyTerritory';
+    var _endpointDev: string = 'http://localhost/MapDotNetUX9.5';
+    var _mapIdDev: string = 'ChapterMaps';
     var _endpoint: string = '@@APPENDPOINT@@';
     var _mapId: string = '@@APPMAPID@@';
 
@@ -20,7 +20,7 @@ export module appsettings {
     export var mapId: string = _mapId.indexOf('@@') > -1 ? _mapIdDev : _mapId;
 
     // the layer to display and query
-    export var layerId: string = 'Accounts';
+    export var layerId: string = utility.getParameterByName('layerid') || 'NAVUG';
 
     // if this is not set, the base map will default to open mapquest
     export var bingKey: string = 'AgjUzr-k4QJoW8nj50LKR2YL4nVsJyHF3NmMhuRjW0bPEfXaeTQKVJ5xHp7c65VU';

@@ -2,7 +2,10 @@
 module.exports = function (grunt) {
     'use strict';
 
-    var version = '2.16.5';
+    var version = '1.0.0';
+    var endpoint = 'https://apps.easyterritory.com/ADA47FA0-1FC6-4054-8227-A70EA1D53A0E/MDN';
+    var mapId = 'ChapterMaps';
+
     var mixIn = require('mout/object/mixIn');
     var requireConfig = {
         baseUrl: 'app/',
@@ -97,8 +100,28 @@ module.exports = function (grunt) {
                 overwrite: true,
                 replacements: [
                     {
-                        from: '@@APPVERSION@#',
+                        from: '@@APPVERSION@@',
                         to: version
+                    }
+                ]
+            },
+            updateMain2: {
+                src: ['build/app/main.js'],
+                overwrite: true,
+                replacements: [
+                    {
+                        from: '@@APPENDPOINT@@',
+                        to: endpoint
+                    }
+                ]
+            },
+            updateMain3: {
+                src: ['build/app/main.js'],
+                overwrite: true,
+                replacements: [
+                    {
+                        from: '@@APPMAPID@@',
+                        to: mapId
                     }
                 ]
             },
@@ -124,39 +147,6 @@ module.exports = function (grunt) {
                 src: 'build/app/main.js',
                 dest: 'build/app/main' + version + '.js'
             }
-        },
-
-        'ftp-deploy': {
-            original: {
-                auth: {
-                    host: 'ftp.easyterritory.com',
-                    port: 21,
-                    username: "deploy",
-                    password: "IaMADMIN!"
-                },
-                src: 'build/',
-                dest: '/dev/APP'
-            },
-            new1: {
-                auth: {
-                    host: '40.121.84.217',
-                    port: 21,
-                    username: "deploy",
-                    password: "h3Reyeseeum"
-                },
-                src: 'build/',
-                dest: '/dev/APP'
-            },
-            new2: {
-                auth: {
-                    host: '40.76.93.26',
-                    port: 21,
-                    username: "deploy",
-                    password: "h3Reyeseeum"
-                },
-                src: 'build/',
-                dest: '/dev/APP'
-            }
         }
     });
 
@@ -173,10 +163,5 @@ module.exports = function (grunt) {
     grunt.registerTask('copyFiles', ['clean:pre', 'copy']);
 
     grunt.registerTask('version', ['replace:updateMain', 'replace:updateIndex']);
-    grunt.registerTask('default', ['clean:pre', 'copy', 'durandal:main', 'replace:updateMain', 'replace:updateIndex', 'uglify', 'clean:post', 'ftp-deploy:original']);
-    grunt.registerTask('buildOnly', ['clean:pre', 'copy', 'durandal:main', 'replace:updateMain', 'replace:updateIndex', 'uglify', 'clean:post']);
-    grunt.registerTask('buildNew', ['clean:pre', 'copy', 'durandal:main', 'replace:updateMain', 'replace:updateIndex', 'uglify', 'clean:post', 'ftp-deploy:new1', 'ftp-deploy:new2']);
-    grunt.registerTask('ftpNew', ['ftp-deploy:new1', 'ftp-deploy:new2']);
-    grunt.registerTask('ftpNew1', ['ftp-deploy:new1']);
-    grunt.registerTask('ftpNew2', ['ftp-deploy:new2']);
+    grunt.registerTask('default', ['clean:pre', 'copy', 'durandal:main', 'replace:updateMain', 'replace:updateIndex', 'uglify', 'clean:post']);
 };

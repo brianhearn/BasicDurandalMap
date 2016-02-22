@@ -62,6 +62,7 @@ export module findNearest {
                 row.ShapeWkt.push(data.ShapeWkt[nearestIdx]);
                 row.Values.push(data.Values[nearestIdx]);
 
+                app.trigger('busy', { isVisible: false });
                 task.resolve(row);
             }
             else {
@@ -78,6 +79,7 @@ export module findNearest {
 
         call.fail((err) => {
             app.trigger('error', err);
+            app.trigger('busy', { isVisible: false });
             task.resolve(null);
         });
         
@@ -114,7 +116,7 @@ function buildEndpoint(
         config.appsettings.mapId +
         '/Features/' +
         mdnLayerId +
-        '/WKT/?Format=json&ReturnShapes=1&ReturnTypes=1';
+        '/WKT/?Format=json&ReturnShapes=1&ReturnTypes=1&Fields=Name,Short%20Link,Next%20Meeting%20Date,Meeting%20Link%20URL';
 
     return uri;
 }

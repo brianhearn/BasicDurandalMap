@@ -13,18 +13,22 @@ class callout {
     _location: mapsjs.point = null;
 
     title: string = 'Query Results';
-    rows: interfaces.calloutRow[] = [];
+    name: string;
+    shortLink: string;
+    nextMeetingDate: string;
+    meetingLinkUrl: string;
 
     constructor() {
 
         observable(this, 'title');
-        observable(this, 'rows');
+        observable(this, 'name');
+        observable(this, 'shortLink');
+        observable(this, 'nextMeetingDate');
+        observable(this, 'meetingLinkUrl');
 
         app.on('callout:close').then(() => {
             this.close();
         }, this);
-
-        
     }
 
     // -----------------------------------------------------------------------------------------------------------------------
@@ -34,19 +38,14 @@ class callout {
         app.trigger('map:fly-to', this._location);
 
         // parse rows
-        this.rows.removeAll();
-        var lenFields = data.Fields.length;
-        for (var i = 0; i < lenFields; i++) {
+        this.name = data.Values[0][0];
+        this.shortLink = data.Values[0][1];
+        this.nextMeetingDate = Date.parse(data.Values[0][2]).toDateString();
+        this.meetingLinkUrl = data.Values[0][3];
 
-            var v = data.Values[0][i];
-            var row: interfaces.calloutRow = {
-                header: data.Fields[i],
-                value: v,
-                linkValue: '',
-                isHyperlink: false,
-                isText: true
-            };
-            this.rows.push(row);
+        // clean up
+        if (this.shortLink.toLowerCase().indexOf('http') === -1) {
+            this.shortLink = 'http://' + this.shortLink;
         }
     
         // if we have never loaded the callout view resource
