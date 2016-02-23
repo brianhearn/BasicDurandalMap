@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 
     var version = '1.0.0';
     var endpoint = 'https://apps.easyterritory.com/ADA47FA0-1FC6-4054-8227-A70EA1D53A0E/MDN';
+    //var endpoint = 'http://localhost/mapdotnetux9.5';
     var mapId = 'ChapterMaps';
 
     var mixIn = require('mout/object/mixIn');
@@ -19,7 +20,6 @@ module.exports = function (grunt) {
             'moment': '../Scripts/moment',
             'modules': './modules',
             'common': './common',
-            'crmDynamics': './crmDynamics',
             'mapsjs': '../Scripts/isc.rim',
             'lang': '../Scripts/i18next.amd.withJQuery-1.6.3.min',
             'async': '../Scripts/async',
@@ -72,10 +72,6 @@ module.exports = function (grunt) {
             rest: {
                 src: 'REST/**/*.ashx',
                 dest: 'build/'
-            },
-            oistorage: {
-                src: '../IOSupport/SQLServer/bin/debug/OpenIntel.IOSupport.SqlServer.dll',
-                dest: 'build/bin/OpenIntel.IOSupport.SqlServer.dll'
             }
         },
 
@@ -163,5 +159,5 @@ module.exports = function (grunt) {
     grunt.registerTask('copyFiles', ['clean:pre', 'copy']);
 
     grunt.registerTask('version', ['replace:updateMain', 'replace:updateIndex']);
-    grunt.registerTask('default', ['clean:pre', 'copy', 'durandal:main', 'replace:updateMain', 'replace:updateIndex', 'uglify', 'clean:post']);
+    grunt.registerTask('default', ['clean:pre', 'copy', 'durandal:main', 'replace', 'uglify', 'clean:post']);
 };

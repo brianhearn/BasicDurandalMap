@@ -7,6 +7,9 @@
         'knockout': '../Scripts/knockout-3.4.0',
         'jwerty': '../Scripts/jwerty-0.3',
         'mapsjs': '../Scripts/isc.rim',
+        'moment': '../Scripts/moment',
+        'modules': './modules',
+        'common': './common',
         'spin': '../Scripts/spin'
     }
 });
@@ -21,8 +24,6 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'durandal/bin
     //>>excludeEnd("build");
 
     app.configurePlugins({
-        router: false,
-        dialog: true,
         observable: true
     });
     
