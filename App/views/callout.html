@@ -38,7 +38,7 @@
                 <h4 style="margin-bottom: 4px;" data-bind="text: name"></h4>
                 <div style="margin-bottom: 4px;"><a data-bind="attr: { href: shortLink}" target="_blank"><span style="cursor: pointer" data-bind="text: shortLink"></span></a></div>
                 <div style="margin-bottom: 4px;" data-bind="visible: nextMeetingDate.length > 0"><span>Next Meeting: </span><span data-bind="text: nextMeetingDate"></span></div>
-                <a style="margin-bottom: 4px;" data-bind="attr: { href: meetingLinkUrl}" target="_blank"><span style="cursor: pointer">View Meeting Details</span></a>
+                <div style="margin-bottom: 4px;" data-bind="visible: meetingLinkUrl && nextMeetingDate.length > 0"><a data-bind="attr: { href: meetingLinkUrl}" target="_blank"><span style="cursor: pointer">View Meeting Details</span></a></div>
             </div>
             <div class="separator" style="margin-top: 4px; margin-bottom: 20px; margin-left: 4px;"></div>
         </div>
