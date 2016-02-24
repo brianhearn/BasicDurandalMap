@@ -40,7 +40,16 @@ class callout {
         // parse rows
         this.name = data.Values[0][0];
         this.shortLink = data.Values[0][1];
-        this.nextMeetingDate = Date.parse(data.Values[0][2]).toDateString();
+
+        var nmd = Date.parse(data.Values[0][2]);
+        if (nmd && nmd > new Date().getTime()) {
+            this.nextMeetingDate = nmd.toDateString();
+        }
+        else {
+            this.nextMeetingDate = '';
+        }
+
+
         this.meetingLinkUrl = data.Values[0][3];
 
         // clean up
@@ -83,6 +92,7 @@ class callout {
 
         if (this._calloutView) {
             app.trigger('map:remove-fixed-element', this._calloutView);
+            this._calloutView = null;
 
             // remove blip
             if (this._blip) {

@@ -5,7 +5,7 @@ import config = require('common/config');
 
 
 // support full US or canadian street address or a US zipcode or a canadian postal code
-var addressValidator = /^\s*(\d+\s+([\w\.\'\-]+(\s|,)+){2,}(\w{2,}|\d+))$|(\d{5}$)|([a-zA-Z]{1}\d{1}[a-zA-Z]{1}\s*\d{1}[a-zA-Z]{1}\d{1})$/i;
+//var addressValidator = /^\s*(\d+\s+([\w\.\'\-]+(\s|,)+){2,}(\w{2,}|\d+))$|(\d{5}$)|([a-zA-Z]{1}\d{1}[a-zA-Z]{1}\s*\d{1}[a-zA-Z]{1}\d{1})$/i;
 var baseUri = '//dev.virtualearth.net/REST/v1/Locations?query=';
 var geocodeInProgress = false;
 var geocodingEnabled: boolean = true;
@@ -25,11 +25,11 @@ export function install() {
             // trim trailing whitespace
             searchText = searchText.trim();
 
-            var valid = addressValidator.test(searchText);
+            //var valid = addressValidator.test(searchText);
             var bingKey = config.appsettings.bingKey;
 
             // if we have something close to an address
-            if (valid && config.appsettings.areBingServicesAvailable) {
+            if (config.appsettings.areBingServicesAvailable) {
 
                 if (!geocodeInProgress) {
 

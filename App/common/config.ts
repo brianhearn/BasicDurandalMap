@@ -23,7 +23,7 @@ export module appsettings {
     export var layerId: string = utility.getParameterByName('layerid') || 'NAVUG';
 
     // if this is not set, the base map will default to open mapquest
-    export var bingKey: string = 'AgjUzr-k4QJoW8nj50LKR2YL4nVsJyHF3NmMhuRjW0bPEfXaeTQKVJ5xHp7c65VU';
+    export var bingKey: string = 'AkHKxaiCl3u9G4PM3I44ztF7cexwtJ-_IdK-vMnyRS4G2b2Ahr7Nl32o0sYTGSwz';
 
     // set to true if a valid bing key provided
     export var areBingServicesAvailable: boolean = true;
