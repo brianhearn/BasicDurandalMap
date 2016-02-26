@@ -54,64 +54,72 @@ class map {
     selectedBaseLayerOption: interfaces.baseLayerOption = this.baseLayerOptions[0];
     showBasemapSelection: boolean = this.baseLayerOptions.length > 1;
 
+
     // the map options configuration ---------------------------------------------------------
-    mapOptions: mapsjs.WidgetOptions = {
-        stopPointerEventPropagation: false,
-        drawnContentZorderToTop: true,
-        contentExtentsMarginInPixels: 256,
-
-        layers: [
-            // base-map tile layer
-            new mapsjs.tile.layerOptions('base',
-            {
-                useBackdrop: true,
-                requestor: this.getBaseMapRequestor(),
-                descriptor: observable(this, 'requestorDescriptor')
-            }),
-            // OVERLAY
-            new mapsjs.tile.layerOptions('mdnLayer',
-            {
-                useBackdrop: false,
-                retainInterlevelContent: false,
-                tileBleedPix: 0,
-                requestor: new mapsjs.tile.requestorMDNRest(config.appsettings.endpoint),
-                descriptor: new mapsjs.tile.descriptorMDNRestMap(config.appsettings.mapId,
-                {
-                    bleedRatio: 1.125,
-                    imageType: 'png8',
-                    mapCacheOption: 'None',
-                    useQuadKeyForMapCacheName: false
-                })
-            })
-        ],
-
-        // this is called before layers are loaded and allows async setup of the map's center and zoom level ----------------
-        mapInitializeLocationAction: (m, callback) => this.initLocation(m, callback),
-
-        // this is called after the map has fully initialized ---------------------------------------------------------------
-        mapInitializedAction: (m) => this.mapInit(m),
-
-        // publish map pointer click events
-        pointerClickAction: (pt, ctrlKey, shiftKey) => app.trigger('map:pointer-click', pt, ctrlKey, shiftKey),
-
-        // publish map hover events
-        pointerHoverAction: (pt) => app.trigger('map:pointer-hover', pt),
-
-        // publish extent change events
-        extentChangeCompleteAction: (e) => {
-            app.trigger('map:extents-change', e);
-        },
-
-        // publish message when map content is repositioned in the DOM
-        // this is used for clustering since we want to re-cluster before the map content is drawn
-        contentRepositionAction: (e) => app.trigger('map:content-reposition', e)
-
-    }; // end of map options
+    mapOptions: mapsjs.WidgetOptions;
 
     // ------------------------------------------------------------------------------------------------------------------------
     constructor() {
 
         observable(this, 'baseLayerOptions');
+
+        var layerViz = {};
+        layerViz[config.appsettings.layerId] = true;
+
+        this.mapOptions = {
+            stopPointerEventPropagation: false,
+            drawnContentZorderToTop: true,
+            contentExtentsMarginInPixels: 256,
+
+            layers: [
+                // base-map tile layer
+                new mapsjs.tile.layerOptions('base',
+                    {
+                        useBackdrop: true,
+                        requestor: this.getBaseMapRequestor(),
+                        descriptor: observable(this, 'requestorDescriptor')
+                    }),
+                // OVERLAY
+                new mapsjs.tile.layerOptions('mdnLayer',
+                    {
+                        useBackdrop: false,
+                        retainInterlevelContent: false,
+                        tileBleedPix: 0,
+                        requestor: new mapsjs.tile.requestorMDNRest(config.appsettings.endpoint),
+                        descriptor: new mapsjs.tile.descriptorMDNRestMap(config.appsettings.mapId,
+                            {
+                                bleedRatio: 1.125,
+                                imageType: 'png8',
+                                mapCacheOption: 'None',
+                                useQuadKeyForMapCacheName: false,
+                                layerVisibility: layerViz,
+                                tag: utility.newId()
+                            })
+                    })
+            ],
+
+            // this is called before layers are loaded and allows async setup of the map's center and zoom level ----------------
+            mapInitializeLocationAction: (m, callback) => this.initLocation(m, callback),
+
+            // this is called after the map has fully initialized ---------------------------------------------------------------
+            mapInitializedAction: (m) => this.mapInit(m),
+
+            // publish map pointer click events
+            pointerClickAction: (pt, ctrlKey, shiftKey) => app.trigger('map:pointer-click', pt, ctrlKey, shiftKey),
+
+            // publish map hover events
+            pointerHoverAction: (pt) => app.trigger('map:pointer-hover', pt),
+
+            // publish extent change events
+            extentChangeCompleteAction: (e) => {
+                app.trigger('map:extents-change', e);
+            },
+
+            // publish message when map content is repositioned in the DOM
+            // this is used for clustering since we want to re-cluster before the map content is drawn
+            contentRepositionAction: (e) => app.trigger('map:content-reposition', e)
+
+        }; // end of map options
 
         // subscriptions ------------------------------------------------------
         // subscribe to move-map-to message
