@@ -8,7 +8,7 @@ export module appsettings {
 
     // dev
     var _endpointDev: string = 'http://localhost/MapDotNetUX9.5';
-    var _mapIdDev: string = 'ChapterMaps';
+    var _mapIdDev: string = 'EasyTerritory';
     var _endpoint: string = '@@APPENDPOINT@@';
     var _mapId: string = '@@APPMAPID@@';
 
@@ -20,10 +20,10 @@ export module appsettings {
     export var mapId: string = _mapId.indexOf('@@') > -1 ? _mapIdDev : _mapId;
 
     // the layer to display and query
-    export var layerId: string = utility.getParameterByName('layerid') || 'NAVUG';
+    export var layerId: string = utility.getParameterByName('layerid') || 'US_Zip_Codes_Points_Production';
 
     // if this is not set, the base map will default to open mapquest
-    export var bingKey: string = 'AkHKxaiCl3u9G4PM3I44ztF7cexwtJ-_IdK-vMnyRS4G2b2Ahr7Nl32o0sYTGSwz';
+    export var bingKey: string = 'AgjUzr-k4QJoW8nj50LKR2YL4nVsJyHF3NmMhuRjW0bPEfXaeTQKVJ5xHp7c65VU';
 
     // set to true if a valid bing key provided
     export var areBingServicesAvailable: boolean = true;
